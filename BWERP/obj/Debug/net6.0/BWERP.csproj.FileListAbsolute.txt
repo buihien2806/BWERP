@@ -30,3 +30,17 @@ D:\Hien Project\BWERP\BWERP\obj\Debug\net6.0\refint\BWERP.dll
 D:\Hien Project\BWERP\BWERP\obj\Debug\net6.0\BWERP.pdb
 D:\Hien Project\BWERP\BWERP\obj\Debug\net6.0\BWERP.genruntimeconfig.cache
 D:\Hien Project\BWERP\BWERP\obj\Debug\net6.0\ref\BWERP.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\BWERP.Models.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\BWERP.Models.pdb
+D:\Hien Project\BWERP\BWERP\obj\Debug\net6.0\BWERP.csproj.CopyComplete
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Blazored.LocalStorage.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Blazored.Toast.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\Microsoft.JSInterop.dll
+D:\Hien Project\BWERP\BWERP\bin\Debug\net6.0\System.IO.Pipelines.dll

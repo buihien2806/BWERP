@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BWERP", "BWERP\BWERP.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BWERP.Api", "BWERP.Api\BWERP.Api.csproj", "{7850FB38-B450-4483-9188-F5DF7CC250A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BWERP.Models", "BWERP.Models\BWERP.Models.csproj", "{651FE01E-DA2D-479D-8C19-231C9763F21F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7850FB38-B450-4483-9188-F5DF7CC250A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7850FB38-B450-4483-9188-F5DF7CC250A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7850FB38-B450-4483-9188-F5DF7CC250A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{651FE01E-DA2D-479D-8C19-231C9763F21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{651FE01E-DA2D-479D-8C19-231C9763F21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{651FE01E-DA2D-479D-8C19-231C9763F21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{651FE01E-DA2D-479D-8C19-231C9763F21F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

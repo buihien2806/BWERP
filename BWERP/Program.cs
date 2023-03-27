@@ -1,14 +1,29 @@
-using BWERP.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Blazored.LocalStorage;
+using Blazored.Toast;
+using BWERP;
+using BWERP.Repositories.Interfaces;
+using BWERP.Repositories.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddBlazoredToast();
 
+builder.Services.AddTransient<ITaskApiClient, TaskApiClient>();
+
+builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
+
+builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+builder.Services.AddScoped<IAuthenService, AuthenService>();
+builder.Services.AddScoped(sp => new HttpClient
+{
+	BaseAddress = new Uri("https://localhost:7036")
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
