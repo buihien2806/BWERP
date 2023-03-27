@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization;
 
 <PageTitle>BWERP</PageTitle>
 
@@ -9,6 +10,9 @@
 
     <main>
         <div class="top-row px-4">
+                    <a href="/users/logout">Logout</a>
+
+                    <a href="/users/login" class="ml col-md-auto">Login</a>
             <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
         </div>
 
