@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Gt4LclM7MnornJ1roszaqsBMm7E+Gi7ydqnz4kcC0piMchZRv8LVOdZJvk2t4iikgNxf1Y79ew7VGIIH9WuKFQ==",
+  "dgSpecHash": "U5Aj8+PBTJDyPMCanQtUm8QCCksYS0DQixsUbL+yXM79d42hxZ5ZXGOd7qR8XM2qwZ/8mTDzMOVpGPXyudmulg==",
   "success": true,
   "projectFilePath": "D:\\Hien Project\\BWERP\\BWERP\\BWERP.csproj",
   "expectedPackageFiles": [
@@ -12,14 +12,18 @@
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.12\\microsoft.aspnetcore.components.forms.6.0.12.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.12\\microsoft.aspnetcore.components.web.6.0.12.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.15\\microsoft.aspnetcore.metadata.6.0.15.nupkg.sha512",
+    "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.jsinterop\\6.0.12\\microsoft.jsinterop.6.0.12.nupkg.sha512",
+    "C:\\Users\\BW_Hien\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\BW_Hien\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\BW_Hien\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
-    "C:\\Users\\BW_Hien\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\BW_Hien\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\BW_Hien\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
