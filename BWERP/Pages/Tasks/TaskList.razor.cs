@@ -4,6 +4,7 @@ using BWERP.Models.Task;
 using BWERP.Pages.Components;
 using BWERP.Repositories.Interfaces;
 using BWERP.Repositories.Services;
+using BWERP.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System;
@@ -27,7 +28,8 @@ namespace BWERP.Pages.Tasks
 		private TaskListSearch taskListSearch = new TaskListSearch();
 
 		public MetaData MetaData { get; set; } = new MetaData();
-
+		[CascadingParameter]
+		private Error? _error { get; set; }
 		protected override async Task OnInitializedAsync()
 		{
 			await GetListTask();
@@ -41,10 +43,11 @@ namespace BWERP.Pages.Tasks
 				var pagingResponse = await taskApiClient.GetListTask(taskListSearch);
 				taskViewRequests = pagingResponse.Items;
 				MetaData = pagingResponse.MetaData;
-			}
-			catch (Exception ex)
+                //throw new InvalidOperationException("Current count is over five!");
+            }
+            catch (Exception ex)
 			{
-				
+                _error.ProcessError(ex);
 			}
 		}
 

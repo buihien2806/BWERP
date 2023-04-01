@@ -1,0 +1,12 @@
+D:\Hien Project\BWERP\BWERP.Models\bin\Release\net6.0\BWERP.Models.deps.json
+D:\Hien Project\BWERP\BWERP.Models\bin\Release\net6.0\BWERP.Models.dll
+D:\Hien Project\BWERP\BWERP.Models\bin\Release\net6.0\BWERP.Models.pdb
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.csproj.AssemblyReference.cache
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.AssemblyInfoInputs.cache
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.AssemblyInfo.cs
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.csproj.CoreCompileInputs.cache
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.dll
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\refint\BWERP.Models.dll
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\BWERP.Models.pdb
+D:\Hien Project\BWERP\BWERP.Models\obj\Release\net6.0\ref\BWERP.Models.dll
