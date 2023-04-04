@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddIdentity<User, Role>()
+builder.Services.AddIdentity<AppUser, AppRole>()
 	.AddEntityFrameworkStores<MainContext>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

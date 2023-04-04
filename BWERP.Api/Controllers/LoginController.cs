@@ -15,11 +15,11 @@ namespace BWERP.Api.Controllers
 	public class LoginController : ControllerBase
 	{
 		private readonly IConfiguration _configuration;
-		private readonly SignInManager<User> _signInManager;
-		private readonly UserManager<User> _userManager;
+		private readonly SignInManager<AppUser> _signInManager;
+		private readonly UserManager<AppUser> _userManager;
 		public LoginController(IConfiguration configuration,
-							   UserManager<User> userManager,
-							   SignInManager<User> signInManager)
+							   UserManager<AppUser> userManager,
+							   SignInManager<AppUser> signInManager)
 		{
 			_configuration = configuration;
 			_signInManager = signInManager;

@@ -53,6 +53,30 @@ namespace BWERP.Api.Repositories.Services
 			return new PagedList<Task>(data, count, taskListSearch.PageNumber, taskListSearch.PageSize);
 		}
 
+		public async Task<PagedList<Task>> GetByUserId(Guid userid, TaskListSearch taskListSearch)
+		{
+			var query = _mainContext.Tasks
+				.Where(x=> x.AssigneeId == userid)
+				.Include(x => x.Assignee).AsQueryable();
+
+			if (!string.IsNullOrEmpty(taskListSearch.Name))
+				query = query.Where(t => t.Name.Contains(taskListSearch.Name));
+
+			if (taskListSearch.AssigneeId.HasValue)
+				query = query.Where(t => t.AssigneeId == taskListSearch.AssigneeId.Value);
+
+			if (taskListSearch.Priority.HasValue)
+				query = query.Where(t => t.Priority == taskListSearch.Priority.Value);
+
+			var count = await query.CountAsync();
+
+			var data = await query.OrderByDescending(x => x.CreatedDate)
+				.Skip((taskListSearch.PageNumber - 1) * taskListSearch.PageSize)
+				.Take(taskListSearch.PageSize)
+				.ToListAsync();
+			return new PagedList<Task>(data, count, taskListSearch.PageNumber, taskListSearch.PageSize);
+		}
+
 		public async Task<Task> GetTaskById(Guid id)
 		{
 			return await _mainContext.Tasks.FindAsync(id);

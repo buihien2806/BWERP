@@ -1,14 +1,19 @@
-﻿using BWERP.Api.Repositories.Interfaces;
+﻿using BWERP.Api.Extensions;
+using BWERP.Api.Repositories.Interfaces;
 using BWERP.Models.Enums;
 using BWERP.Models.SeedWork;
 using BWERP.Models.Task;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BWERP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TasksController : ControllerBase
+	//[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
+	public class TasksController : ControllerBase
     {
         private readonly ITaskRepository _taskRepository;
         public TasksController(ITaskRepository taskRepository)
@@ -36,7 +41,28 @@ namespace BWERP.Api.Controllers
                 pagedlist.MetaData.CurrentPage,
                 pagedlist.MetaData.PageSize));
         }
-        [HttpPost]
+		[HttpGet("me")]
+		public async Task<IActionResult> GetTaskByUserId([FromQuery] TaskListSearch taskListSearch)
+		{
+            var userid = User.GetUserId();
+			var pagedlist = await _taskRepository.GetByUserId(Guid.Parse(userid),taskListSearch);
+
+			var taskDtos = pagedlist.Items.Select(x => new TaskViewRequest()
+			{
+				Id = x.Id,
+				Name = x.Name,
+				AssigneeId = x.AssigneeId,
+				Assignee = x.Assignee != null ? x.Assignee.FirstName + ' ' + x.Assignee.LastName : "N/A",
+				CreatedDate = x.CreatedDate,
+				Priority = x.Priority,
+				Status = x.Status
+			}).OrderByDescending(x => x.CreatedDate);
+			return Ok(new PagedList<TaskViewRequest>(taskDtos.ToList(),
+				pagedlist.MetaData.TotalCount,
+				pagedlist.MetaData.CurrentPage,
+				pagedlist.MetaData.PageSize));
+		}
+		[HttpPost]
         public async Task<IActionResult> Create([FromBody] TaskCreateRequest request)
         {
             if (!ModelState.IsValid)

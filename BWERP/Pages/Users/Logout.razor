@@ -8,6 +8,6 @@
     protected async override Task OnInitializedAsync()
     {
         await authenService.Logout();
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/users/login");
     }
 }
