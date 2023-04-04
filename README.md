@@ -5,6 +5,7 @@ Develop ERP web for Buwon Vina using Blazor Server .NET 6.0
 - ASP.NET 6.0
 - REST API
 - SQL Server
+- Visual studio 2022
 - Entity Framework Core
 - Blazor Server
 
