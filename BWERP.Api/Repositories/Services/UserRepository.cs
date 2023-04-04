@@ -12,7 +12,7 @@ namespace BWERP.Api.Repositories.Services
 		{
 			_mainContext = mainContext;
 		}
-		public async Task<List<User>> GetListUser()
+		public async Task<List<AppUser>> GetListUser()
 		{
 			return await _mainContext.Users.ToListAsync();
 		}

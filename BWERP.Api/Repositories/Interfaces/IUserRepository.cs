@@ -4,6 +4,6 @@ namespace BWERP.Api.Repositories.Interfaces
 {
 	public interface IUserRepository
 	{
-		Task<List<User>> GetListUser();
+		Task<List<AppUser>> GetListUser();
 	}
 }

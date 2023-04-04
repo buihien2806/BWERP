@@ -22,7 +22,105 @@ namespace BWERP.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BWERP.Api.Entities.Role", b =>
+            modelBuilder.Entity("BWERP.Api.Entities.AppMenu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("isEnable")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("AppMenus", (string)null);
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppMenuPermission", b =>
+                {
+                    b.Property<int>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleMenuId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PermissionId");
+
+                    b.HasIndex("RoleMenuId");
+
+                    b.ToTable("AppMenuPermissions", (string)null);
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppPermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppPermissions", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "View"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Create"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Update"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Delete"
+                        });
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,50 +142,43 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("AppRoles", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "600ea375-8bf1-4bfc-a504-12c9866d0bc1",
+                            ConcurrencyStamp = "518e93c6-75cf-47d7-b6ad-b0386b0dadf4",
                             Description = "Administrator",
                             Name = "admin",
                             NormalizedName = "admin"
                         });
                 });
 
-            modelBuilder.Entity("BWERP.Api.Entities.Task", b =>
+            modelBuilder.Entity("BWERP.Api.Entities.AppRoleMenu", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AssigneeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MenuId")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AssigneeId");
+                    b.HasIndex("MenuId");
 
-                    b.ToTable("Tasks", (string)null);
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AppRoleMenus", (string)null);
                 });
 
-            modelBuilder.Entity("BWERP.Api.Entities.User", b =>
+            modelBuilder.Entity("BWERP.Api.Entities.AppUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,14 +247,14 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("AppUsers", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3a2ba5f7-712b-418a-902d-16c01462cb18",
+                            ConcurrencyStamp = "901249b3-f400-442b-ac9c-390b61583bb9",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "orib@a2-cloud.com",
                             EmailConfirmed = true,
@@ -171,15 +262,45 @@ namespace BWERP.Api.Migrations
                             LastLogin = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Bui",
                             LockoutEnabled = false,
-                            NormalizedEmail = "orib@a2-cloud.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELVhOeKbjNmYm6ko5JCfluLmKKNLi5kUSZji5vaW8FVZSCdFEVbtDORFdSYc7jpQwg==",
+                            NormalizedEmail = "ORIB@A2-CLOUD.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKsGU5xvzF5JDtMPgE2U1s6JukzVmsrvSztkRpRwS1oQDqo6mIdNp7eOi5n+V2ZESw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "71b2dba1-e82f-49f4-8d45-f78c7ee5f6c3",
+                            SecurityStamp = "800c30c5-e8a9-4a61-a28a-9efda01ea52e",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isActive = false
                         });
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.Task", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AssigneeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssigneeId");
+
+                    b.ToTable("Tasks", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -201,7 +322,7 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RoleClaims", (string)null);
+                    b.ToTable("AppRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
@@ -223,7 +344,7 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserClaims", (string)null);
+                    b.ToTable("AppUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
@@ -243,7 +364,7 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UserLogins", (string)null);
+                    b.ToTable("AppUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
@@ -256,7 +377,7 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("UserId", "RoleId");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("AppUserRoles", (string)null);
 
                     b.HasData(
                         new
@@ -283,19 +404,88 @@ namespace BWERP.Api.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("UserTokens", (string)null);
+                    b.ToTable("AppUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppMenu", b =>
+                {
+                    b.HasOne("BWERP.Api.Entities.AppMenu", "ParentItem")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("ParentItem");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppMenuPermission", b =>
+                {
+                    b.HasOne("BWERP.Api.Entities.AppPermission", "AppPermission")
+                        .WithMany("MenuPermissions")
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BWERP.Api.Entities.AppRoleMenu", "AppRoleMenu")
+                        .WithMany("MenuPermissions")
+                        .HasForeignKey("RoleMenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppPermission");
+
+                    b.Navigation("AppRoleMenu");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppRoleMenu", b =>
+                {
+                    b.HasOne("BWERP.Api.Entities.AppMenu", "AppMenu")
+                        .WithMany("AppRoleMenus")
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BWERP.Api.Entities.AppRole", "AppRole")
+                        .WithMany("AppRoleMenus")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppMenu");
+
+                    b.Navigation("AppRole");
                 });
 
             modelBuilder.Entity("BWERP.Api.Entities.Task", b =>
                 {
-                    b.HasOne("BWERP.Api.Entities.User", "Assignee")
+                    b.HasOne("BWERP.Api.Entities.AppUser", "Assignee")
                         .WithMany("Tasks")
                         .HasForeignKey("AssigneeId");
 
                     b.Navigation("Assignee");
                 });
 
-            modelBuilder.Entity("BWERP.Api.Entities.User", b =>
+            modelBuilder.Entity("BWERP.Api.Entities.AppMenu", b =>
+                {
+                    b.Navigation("AppRoleMenus");
+
+                    b.Navigation("Children");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppPermission", b =>
+                {
+                    b.Navigation("MenuPermissions");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppRole", b =>
+                {
+                    b.Navigation("AppRoleMenus");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppRoleMenu", b =>
+                {
+                    b.Navigation("MenuPermissions");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.AppUser", b =>
                 {
                     b.Navigation("Tasks");
                 });
