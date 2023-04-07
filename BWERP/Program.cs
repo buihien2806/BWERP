@@ -13,6 +13,7 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddTransient<ITaskApiClient, TaskApiClient>();
 builder.Services.AddTransient<IUserApiClient, UserApiClient>();
+builder.Services.AddTransient<IMenuApiClient, MenuApiClient>();
 
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddOptions();

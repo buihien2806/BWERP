@@ -10,6 +10,7 @@ namespace BWERP.Api.Entities
 		public DateTime LastLogin { get; set; }
 		public bool isActive { get; set; }
 		public List<Task>? Tasks { get; set; }
+        public List<DailyReport>? DailyReports { get; set; }
 
-	}
+    }
 }

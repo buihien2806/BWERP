@@ -15,6 +15,8 @@ namespace BWERP.Api.EF
 		{
             //Identity Database
             modelBuilder.ApplyConfiguration(new TaskConfiguration());
+            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new DailyReportConfiguration());
 
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
@@ -35,5 +37,9 @@ namespace BWERP.Api.EF
 		}
 
 		public DbSet<Task> Tasks { get; set; }
-	}
+		public DbSet<AppUser> Users { get; set; }
+
+		public DbSet<AppMenu> Menus { get; set; }
+        public DbSet<AppRoleMenu> AppRoleMenus { get; set; }
+    }
 }

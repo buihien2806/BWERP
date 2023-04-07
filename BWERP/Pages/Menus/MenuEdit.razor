@@ -1,0 +1,110 @@
+﻿@page "/menus/menuedit/{menuid}"
+
+<h3>adasdasdad @menuid</h3>
+@code {
+	[Parameter]
+	public int menuid { get; set; }
+}
+@*@using BWERP.Models.Menu;
+@using BWERP.Repositories.Interfaces
+@using BWERP.Pages.Components
+
+@inject IMenuApiClient menuApiClient
+@inject NavigationManager NavigationManager;
+@inject IToastService toastService
+
+@if (menus == null)
+{
+	<LoadingIndicator></LoadingIndicator>
+}
+else
+{
+	<div class="app-content pt-3 p-md-3 p-lg-4">
+		<div class="container-xl">
+			<h1 class="app-page-title">Edit Menu @menus.Name</h1>
+			<hr class="mb-4">
+			<div class="row g-4 settings-section">
+				<div class="app-card app-card-settings shadow-sm p-4">
+					<div class="app-card-body">
+						<EditForm Model="menus" OnValidSubmit="SubmitTask">
+							<DataAnnotationsValidator />
+							<div class="mb-3">
+								<label for="Name" class="form-label">Name</label>
+								<InputText class="form-control" @bind-Value="menus.Name"></InputText>
+								<ValidationMessage For="()=>menus.Name"></ValidationMessage>
+							</div>
+
+							<div class="mb-3">
+								<label for="Name" class="form-label">Description</label>
+								<InputText class="form-control" @bind-Value="menus.Description"></InputText>
+								<ValidationMessage For="()=>menus.Description"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Name" class="form-label">Parent Menu</label>
+								<InputSelect class="form-select" @bind-Value="menus.ParentId">
+									<option selected value="0">--Select menu--</option>
+
+									@foreach (var parent in parentMenuDtos)
+									{
+										<option value="@parent.Id">@parent.Name</option>
+									}
+								</InputSelect>
+								<ValidationMessage For="()=>menus.ParentId"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Name" class="form-label">Icon</label>
+								<InputText class="form-control" @bind-Value="menus.Icon"></InputText>
+								<ValidationMessage For="()=>menus.Icon"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Name" class="form-label">Url</label>
+								<InputText class="form-control" @bind-Value="menus.Url"></InputText>
+								<ValidationMessage For="()=>menus.Url"></ValidationMessage>
+							</div>
+
+							<button type="submit" class="btn app-btn-primary">Save Changes</button>
+							<a class="btn app-btn-secondary" href="/users/userlist">Cancel</a>
+						</EditForm>
+					</div><!--//app-card-body-->
+				</div><!--//app-card-->
+			</div><!--//row-->
+		</div><!--//container-fluid-->
+	</div>
+
+	<!--//app-content-->
+}
+
+@code {
+	[Parameter]
+	public int menuId { set; get; }
+	private List<ParentMenuDto> parentMenuDtos;
+	private MenuUpdateRequest menus = new MenuUpdateRequest();
+
+	protected async override Task OnInitializedAsync()
+	{
+		var menuDtos = await menuApiClient.GetMenuById(menuId);
+		menus.Name = menuDtos.Name;
+		menus.Description = menuDtos.Description;
+		menus.ParentId = menuDtos.ParentId;
+		menus.Icon = menuDtos.Icon;
+		menus.Url = menuDtos.Url;
+		menus.SortOrder = menuDtos.SortOrder;
+		//
+		parentMenuDtos = await menuApiClient.GetParentMenu();
+	}
+
+	private async Task SubmitTask(EditContext context)
+	{
+		var result = await menuApiClient.UpdateMenu(menuId, menus);
+		if (result)
+		{
+			toastService.ShowSuccess($"{menus.Name} has been updated successfully.");
+			NavigationManager.NavigateTo("/menus/menulist");
+		}
+		else
+		{
+			toastService.ShowError($"An error occurred in progress. Please contact to administrator.");
+
+		}
+	}
+}*@

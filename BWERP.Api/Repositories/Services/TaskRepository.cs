@@ -16,20 +16,6 @@ namespace BWERP.Api.Repositories.Services
 			_mainContext = mainContext;
 		}
 
-		public async Task<Task> Create(Task task)
-		{
-            await _mainContext.Tasks.AddAsync(task);
-            await _mainContext.SaveChangesAsync();
-            return task;
-        }
-
-		public async Task<Task> Delete(Task task)
-		{
-            _mainContext.Tasks.Remove(task);
-            await _mainContext.SaveChangesAsync();
-            return task;
-        }
-
 		public async Task<PagedList<Task>> GetAllTask(TaskListSearch taskListSearch)
 		{
 			var query = _mainContext.Tasks
@@ -81,8 +67,20 @@ namespace BWERP.Api.Repositories.Services
 		{
 			return await _mainContext.Tasks.FindAsync(id);
 		}
+        public async Task<Task> Create(Task task)
+        {
+            await _mainContext.Tasks.AddAsync(task);
+            await _mainContext.SaveChangesAsync();
+            return task;
+        }
 
-		public async Task<Task> Update(Task task)
+        public async Task<Task> Delete(Task task)
+        {
+            _mainContext.Tasks.Remove(task);
+            await _mainContext.SaveChangesAsync();
+            return task;
+        }
+        public async Task<Task> Update(Task task)
 		{
             _mainContext.Tasks.Update(task);
              await _mainContext.SaveChangesAsync();
