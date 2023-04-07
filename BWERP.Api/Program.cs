@@ -47,6 +47,7 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 builder.Services.AddTransient<ITaskRepository, TaskRepository>();
+builder.Services.AddTransient<IMenuRepository, MenuRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();

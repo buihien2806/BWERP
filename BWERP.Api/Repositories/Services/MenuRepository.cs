@@ -1,0 +1,66 @@
+﻿using BWERP.Api.EF;
+using BWERP.Api.Entities;
+using BWERP.Api.Repositories.Interfaces;
+using BWERP.Models.Menu;
+using BWERP.Models.SeedWork;
+using BWERP.Models.Task;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+
+namespace BWERP.Api.Repositories.Services
+{
+    public class MenuRepository : IMenuRepository
+    {
+        private readonly MainContext _mainContext;
+        public MenuRepository(MainContext mainContext)
+        {
+            _mainContext = mainContext;
+        }
+        public async Task<AppMenu> GetMenuById(int id)
+        {
+            return await _mainContext.Menus.FindAsync(id);
+        }
+
+        public async Task<PagedList<AppMenu>> GetAllMenu(MenuListSearch menuListSearch)
+        {
+            var query = from m in _mainContext.Menus
+                            //.Include(x => x.Assignee).AsQueryable();
+                        select m;
+            if (!string.IsNullOrEmpty(menuListSearch.Name))
+                query = query.Where(t => t.Name.Contains(menuListSearch.Name));
+
+            var count = await query.CountAsync();
+
+            var data = await query.OrderBy(x => x.SortOrder)
+                .Skip((menuListSearch.PageNumber - 1) * menuListSearch.PageSize)
+                .Take(menuListSearch.PageSize)
+                .ToListAsync();
+            return new PagedList<AppMenu>(data, count, menuListSearch.PageNumber, menuListSearch.PageSize);
+        }
+        public async Task<AppMenu> Create(AppMenu menu)
+        {
+            await _mainContext.Menus.AddAsync(menu);
+            await _mainContext.SaveChangesAsync();
+            return menu;
+        }
+
+        public async Task<AppMenu> Delete(AppMenu menu)
+        {
+            _mainContext.Menus.Remove(menu);
+            await _mainContext.SaveChangesAsync();
+            return menu;
+        }
+
+        public async Task<AppMenu> Update(AppMenu menu)
+        {
+            _mainContext.Menus.Update(menu);
+            await _mainContext.SaveChangesAsync();
+            return menu;
+        }
+
+		public async Task<List<AppMenu>> GetParentMenu()
+		{
+			return await _mainContext.Menus.ToListAsync();
+		}
+	}
+}

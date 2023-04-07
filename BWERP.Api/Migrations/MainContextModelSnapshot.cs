@@ -35,6 +35,10 @@ namespace BWERP.Api.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Icon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -42,25 +46,18 @@ namespace BWERP.Api.Migrations
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SortOrder")
+                    b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("Url")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("isEnable")
+                        .HasMaxLength(50)
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ParentId");
 
                     b.ToTable("AppMenus", (string)null);
                 });
@@ -148,7 +145,7 @@ namespace BWERP.Api.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "518e93c6-75cf-47d7-b6ad-b0386b0dadf4",
+                            ConcurrencyStamp = "256054e1-ff8e-49a6-a6fd-b83556d56873",
                             Description = "Administrator",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -254,7 +251,7 @@ namespace BWERP.Api.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "901249b3-f400-442b-ac9c-390b61583bb9",
+                            ConcurrencyStamp = "d47596ea-375e-47e8-93d4-e3bd923a748f",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "orib@a2-cloud.com",
                             EmailConfirmed = true,
@@ -264,13 +261,79 @@ namespace BWERP.Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ORIB@A2-CLOUD.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKsGU5xvzF5JDtMPgE2U1s6JukzVmsrvSztkRpRwS1oQDqo6mIdNp7eOi5n+V2ZESw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOxL3TQIU5isurxE+YnPwOaZum5f4PqO/g6/e2eM9EXZdqWBgVcev+gm2PVuNj82JA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "800c30c5-e8a9-4a61-a28a-9efda01ea52e",
+                            SecurityStamp = "54205dc6-2910-4cb1-b980-471830d0db0a",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isActive = false
                         });
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.DailyReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TodayTask")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("TomorrowTask")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DailyReports", (string)null);
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("BWERP.Api.Entities.Task", b =>
@@ -407,15 +470,6 @@ namespace BWERP.Api.Migrations
                     b.ToTable("AppUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BWERP.Api.Entities.AppMenu", b =>
-                {
-                    b.HasOne("BWERP.Api.Entities.AppMenu", "ParentItem")
-                        .WithMany("Children")
-                        .HasForeignKey("ParentId");
-
-                    b.Navigation("ParentItem");
-                });
-
             modelBuilder.Entity("BWERP.Api.Entities.AppMenuPermission", b =>
                 {
                     b.HasOne("BWERP.Api.Entities.AppPermission", "AppPermission")
@@ -454,6 +508,25 @@ namespace BWERP.Api.Migrations
                     b.Navigation("AppRole");
                 });
 
+            modelBuilder.Entity("BWERP.Api.Entities.DailyReport", b =>
+                {
+                    b.HasOne("BWERP.Api.Entities.Department", "Department")
+                        .WithMany("DailyReports")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BWERP.Api.Entities.AppUser", "AppUser")
+                        .WithMany("DailyReports")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Department");
+                });
+
             modelBuilder.Entity("BWERP.Api.Entities.Task", b =>
                 {
                     b.HasOne("BWERP.Api.Entities.AppUser", "Assignee")
@@ -466,8 +539,6 @@ namespace BWERP.Api.Migrations
             modelBuilder.Entity("BWERP.Api.Entities.AppMenu", b =>
                 {
                     b.Navigation("AppRoleMenus");
-
-                    b.Navigation("Children");
                 });
 
             modelBuilder.Entity("BWERP.Api.Entities.AppPermission", b =>
@@ -487,7 +558,14 @@ namespace BWERP.Api.Migrations
 
             modelBuilder.Entity("BWERP.Api.Entities.AppUser", b =>
                 {
+                    b.Navigation("DailyReports");
+
                     b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("BWERP.Api.Entities.Department", b =>
+                {
+                    b.Navigation("DailyReports");
                 });
 #pragma warning restore 612, 618
         }

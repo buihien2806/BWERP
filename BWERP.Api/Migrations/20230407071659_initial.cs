@@ -15,22 +15,17 @@ namespace BWERP.Api.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     ParentId = table.Column<int>(type: "int", nullable: true),
-                    Icon = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    SortOrder = table.Column<int>(type: "int", nullable: true),
-                    isEnable = table.Column<int>(type: "int", nullable: false)
+                    Icon = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Url = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    SortOrder = table.Column<int>(type: "int", nullable: false),
+                    isEnable = table.Column<int>(type: "int", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AppMenus", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AppMenus_AppMenus_ParentId",
-                        column: x => x.ParentId,
-                        principalTable: "AppMenus",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -162,6 +157,21 @@ namespace BWERP.Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppRoleMenus",
                 columns: table => new
                 {
@@ -209,6 +219,36 @@ namespace BWERP.Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DailyReports",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TodayTask = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    TomorrowTask = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DailyReports", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DailyReports_AppUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DailyReports_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppMenuPermissions",
                 columns: table => new
                 {
@@ -246,7 +286,7 @@ namespace BWERP.Api.Migrations
             migrationBuilder.InsertData(
                 table: "AppRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"), "518e93c6-75cf-47d7-b6ad-b0386b0dadf4", "Administrator", "admin", "admin" });
+                values: new object[] { new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"), "256054e1-ff8e-49a6-a6fd-b83556d56873", "Administrator", "admin", "admin" });
 
             migrationBuilder.InsertData(
                 table: "AppUserRoles",
@@ -256,17 +296,12 @@ namespace BWERP.Api.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CreatedDate", "Email", "EmailConfirmed", "FirstName", "LastLogin", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "isActive" },
-                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, "901249b3-f400-442b-ac9c-390b61583bb9", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "orib@a2-cloud.com", true, "Hien", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bui", false, null, "ORIB@A2-CLOUD.COM", "ADMIN", "AQAAAAEAACcQAAAAEKsGU5xvzF5JDtMPgE2U1s6JukzVmsrvSztkRpRwS1oQDqo6mIdNp7eOi5n+V2ZESw==", null, false, "800c30c5-e8a9-4a61-a28a-9efda01ea52e", false, "admin", false });
+                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, "d47596ea-375e-47e8-93d4-e3bd923a748f", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "orib@a2-cloud.com", true, "Hien", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bui", false, null, "ORIB@A2-CLOUD.COM", "ADMIN", "AQAAAAEAACcQAAAAEOxL3TQIU5isurxE+YnPwOaZum5f4PqO/g6/e2eM9EXZdqWBgVcev+gm2PVuNj82JA==", null, false, "54205dc6-2910-4cb1-b980-471830d0db0a", false, "admin", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppMenuPermissions_RoleMenuId",
                 table: "AppMenuPermissions",
                 column: "RoleMenuId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AppMenus_ParentId",
-                table: "AppMenus",
-                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppRoleMenus_MenuId",
@@ -277,6 +312,16 @@ namespace BWERP.Api.Migrations
                 name: "IX_AppRoleMenus_RoleId",
                 table: "AppRoleMenus",
                 column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyReports_DepartmentId",
+                table: "DailyReports",
+                column: "DepartmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailyReports_UserId",
+                table: "DailyReports",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_AssigneeId",
@@ -305,6 +350,9 @@ namespace BWERP.Api.Migrations
                 name: "AppUserTokens");
 
             migrationBuilder.DropTable(
+                name: "DailyReports");
+
+            migrationBuilder.DropTable(
                 name: "Tasks");
 
             migrationBuilder.DropTable(
@@ -312,6 +360,9 @@ namespace BWERP.Api.Migrations
 
             migrationBuilder.DropTable(
                 name: "AppRoleMenus");
+
+            migrationBuilder.DropTable(
+                name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "AppUsers");
