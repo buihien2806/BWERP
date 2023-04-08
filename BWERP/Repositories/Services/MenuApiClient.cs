@@ -58,5 +58,11 @@ namespace BWERP.Repositories.Services
 			var result = await _httpClient.GetFromJsonAsync<List<ParentMenuDto>>($"/api/menus/parent");
 			return result;
 		}
+
+		public async Task<List<MenuViewRequest>> GetMenuByUser(string username)
+		{
+			var result = await _httpClient.GetFromJsonAsync<List<MenuViewRequest>>($"/api/menus/getbyuser/{username}");
+			return result;
+		}
 	}
 }

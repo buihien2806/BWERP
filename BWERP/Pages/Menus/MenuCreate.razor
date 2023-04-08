@@ -28,12 +28,12 @@ else
 								<ValidationMessage For="()=>menu.Name"></ValidationMessage>
 							</div>
 							<div class="mb-3">
-								<label for="Name" class="form-label">Description</label>
+								<label for="Description" class="form-label">Description</label>
 								<InputText class="form-control" @bind-Value="menu.Description"></InputText>
 								<ValidationMessage For="()=>menu.Description"></ValidationMessage>
 							</div>
 							<div class="mb-3">
-								<label for="Name" class="form-label">Parent Menu</label>
+								<label for="ParentId" class="form-label">Parent Menu</label>
 								<InputSelect class="form-select" @bind-Value="menu.ParentId">
 									<option selected value="0">--Select menu--</option>
 
@@ -45,14 +45,24 @@ else
 								<ValidationMessage For="()=>menu.ParentId"></ValidationMessage>
 							</div>
 							<div class="mb-3">
-								<label for="Name" class="form-label">Icon</label>
+								<label for="Icon" class="form-label">Icon</label>
 								<InputText class="form-control" @bind-Value="menu.Icon"></InputText>
 								<ValidationMessage For="()=>menu.Icon"></ValidationMessage>
 							</div>
 							<div class="mb-3">
-								<label for="Name" class="form-label">Url</label>
+								<label for="IconPath" class="form-label">Icon Path</label>
+								<InputText class="form-control" @bind-Value="menu.IconPath"></InputText>
+								<ValidationMessage For="()=>menu.IconPath"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Url" class="form-label">Url</label>
 								<InputText class="form-control" @bind-Value="menu.Url"></InputText>
 								<ValidationMessage For="()=>menu.Url"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Url" class="form-label">Sort No.</label>
+								<InputNumber class="form-control" @bind-Value="menu.SortOrder"></InputNumber>
+								<ValidationMessage For="()=>menu.SortOrder"></ValidationMessage>
 							</div>
 							<button type="submit" class="btn app-btn-primary">Save Changes</button>
 							<a class="btn app-btn-secondary" href="/menus/menulist">Cancel</a>

@@ -37,7 +37,7 @@ namespace BWERP.Api.Controllers
 
 			var claims = new[]
 			{
-				new Claim(ClaimTypes.Name, login.UserName),
+                new Claim(ClaimTypes.Name, login.UserName),
 				new Claim("UserId", user.Id.ToString())
 			};
 
