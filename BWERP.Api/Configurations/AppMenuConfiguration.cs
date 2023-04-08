@@ -12,9 +12,7 @@ namespace BWERP.Api.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.Description).IsRequired(false).HasMaxLength(100);
-            builder.Property(x => x.Icon).IsRequired(false).HasMaxLength(50);
-            builder.Property(x => x.Url).IsRequired(false).HasMaxLength(50);                      
+            builder.Property(x => x.Url).IsRequired().HasMaxLength(50);                      
             builder.Property(x => x.isEnable).IsRequired().HasMaxLength(50);           
         }
     }

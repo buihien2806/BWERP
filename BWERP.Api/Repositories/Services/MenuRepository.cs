@@ -60,7 +60,28 @@ namespace BWERP.Api.Repositories.Services
 
 		public async Task<List<AppMenu>> GetParentMenu()
 		{
-			return await _mainContext.Menus.ToListAsync();
+			return await _mainContext.Menus.Where(x=> x.ParentId == 0).ToListAsync();
 		}
-	}
+
+        public async Task<List<MenuViewRequest>> GetMenuByUser(string username)
+        {
+            var query = from menu in _mainContext.Menus
+                        join rolemenu in _mainContext.AppRoleMenus on menu.Id equals rolemenu.MenuId
+                        join userrole in _mainContext.UserRoles on rolemenu.RoleId equals userrole.RoleId
+                        join user in _mainContext.Users on userrole.UserId equals user.Id
+                        where user.UserName == username
+                        select menu;
+            return await query.Select(x => new MenuViewRequest()
+            {
+                Id = x.Id,
+                Name= x.Name,
+                Description= x.Description,
+                ParentId= x.ParentId,
+                Icon = x.Icon,
+                IconPath = x.IconPath,
+                Url= x.Url,
+                SortOrder= x.SortOrder
+            }).OrderBy(x => x.SortOrder).ToListAsync();
+        }
+    }
 }

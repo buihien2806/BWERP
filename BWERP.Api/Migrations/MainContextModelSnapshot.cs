@@ -31,12 +31,13 @@ namespace BWERP.Api.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Icon")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IconPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -50,6 +51,7 @@ namespace BWERP.Api.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -145,7 +147,7 @@ namespace BWERP.Api.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "256054e1-ff8e-49a6-a6fd-b83556d56873",
+                            ConcurrencyStamp = "3a22810e-26a1-49bc-915b-63354ab2021e",
                             Description = "Administrator",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -251,7 +253,7 @@ namespace BWERP.Api.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d47596ea-375e-47e8-93d4-e3bd923a748f",
+                            ConcurrencyStamp = "69d71381-a583-4066-9da1-5b2431b57565",
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "orib@a2-cloud.com",
                             EmailConfirmed = true,
@@ -261,9 +263,9 @@ namespace BWERP.Api.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ORIB@A2-CLOUD.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOxL3TQIU5isurxE+YnPwOaZum5f4PqO/g6/e2eM9EXZdqWBgVcev+gm2PVuNj82JA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDqlI9MgvfdZp5OfNrUFy17yIoroG0kahVp6+Wtb7cvF5no2OVLZydkz9x6ZmjiyWw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "54205dc6-2910-4cb1-b980-471830d0db0a",
+                            SecurityStamp = "2b710d89-a081-4f7f-a8c0-9f89910d5eeb",
                             TwoFactorEnabled = false,
                             UserName = "admin",
                             isActive = false

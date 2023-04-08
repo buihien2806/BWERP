@@ -9,7 +9,8 @@ namespace BWERP.Repositories.Interfaces
 		Task<PagedList<MenuViewRequest>> GetListMenu(MenuListSearch menuListSearch);
 		Task<List<ParentMenuDto>> GetParentMenu();
 		Task<MenuViewRequest> GetMenuById(int id);
-		Task<bool> CreateMenu(MenuCreateRequest request);
+        Task<List<MenuViewRequest>> GetMenuByUser(string username);
+        Task<bool> CreateMenu(MenuCreateRequest request);
 		Task<bool> UpdateMenu(int id, MenuUpdateRequest request);
 		Task<bool> DeleteMenu(int id);
 	}

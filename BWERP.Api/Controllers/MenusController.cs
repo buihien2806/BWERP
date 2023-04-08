@@ -1,4 +1,5 @@
 ﻿using BWERP.Api.Entities;
+using BWERP.Api.Extensions;
 using BWERP.Api.Repositories.Interfaces;
 using BWERP.Api.Repositories.Services;
 using BWERP.Models.Enums;
@@ -30,6 +31,7 @@ namespace BWERP.Api.Controllers
                 Id = x.Id,
                 Name = x.Name,
                 ParentId = x.ParentId,
+                Icon = x.Icon,
                 //Assignee = x.Assignee != null ? x.Assignee.FirstName + ' ' + x.Assignee.LastName : "N/A",
                 Url = x.Url,
                 SortOrder = x.SortOrder,
@@ -58,7 +60,7 @@ namespace BWERP.Api.Controllers
                 SortOrder = result.SortOrder,
                 Url = result.Url,
                 Icon = result.Icon
-            });
+        });
         }
 		[HttpGet("parent")]
 		public async Task<IActionResult> GetParentMenu()
@@ -72,7 +74,14 @@ namespace BWERP.Api.Controllers
             });
             return Ok(menuDtos);
 		}
-		[HttpPost]
+        [HttpGet]
+        [Route("getbyuser/{username}")]
+        public async Task<IActionResult> GetMenuByUser(string username)
+        {
+            var result = await _menuRepository.GetMenuByUser(username);            
+            return Ok(result);
+        }
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] MenuCreateRequest request)
         {
             if (!ModelState.IsValid)
@@ -86,7 +95,8 @@ namespace BWERP.Api.Controllers
                 ParentId = request.ParentId,
                 Url = request.Url,
                 SortOrder = request.SortOrder,
-                Icon= request.Icon
+                Icon= request.Icon,
+                IconPath = request.IconPath
             });
             return Ok();
         }
