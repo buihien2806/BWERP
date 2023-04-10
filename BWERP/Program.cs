@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+builder.Services.AddTransient<IDailyReportApiClient, DailyReportApiClient>();
+builder.Services.AddTransient<IDepartmentApiClient, DepartmentApiClient>();
 builder.Services.AddTransient<ITaskApiClient, TaskApiClient>();
 builder.Services.AddTransient<IUserApiClient, UserApiClient>();
 builder.Services.AddTransient<IMenuApiClient, MenuApiClient>();
