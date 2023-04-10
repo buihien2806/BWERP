@@ -36,9 +36,10 @@ namespace BWERP.Api.EF
 			modelBuilder.Seed();
 		}
 
+		public DbSet<Department> Departments { get; set; }
+		public DbSet<DailyReport> DailyReports { get; set; }
 		public DbSet<Task> Tasks { get; set; }
 		public DbSet<AppUser> Users { get; set; }
-
 		public DbSet<AppMenu> Menus { get; set; }
         public DbSet<AppRoleMenu> AppRoleMenus { get; set; }
     }

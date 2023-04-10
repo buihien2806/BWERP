@@ -40,6 +40,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xTdGF0dXNMYWJlbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Hien Project/BWERP/BWERP/Pages/DepartmentDailyReport/DailyReportCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0Q3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hien Project/BWERP/BWERP/Pages/DepartmentDailyReport/DailyReportEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0RWRpdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hien Project/BWERP/BWERP/Pages/DepartmentDailyReport/DailyReportList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0TGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Hien Project/BWERP/BWERP/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
