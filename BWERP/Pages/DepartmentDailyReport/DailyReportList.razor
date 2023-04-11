@@ -18,6 +18,7 @@ else
 						</div><!--//col-->
 						<div class="col-auto">
 							<a href="/DepartmentDailyReport/DailyReportCreate" class="btn app-btn-secondary">Create</a>
+							<a href="/departmentdailyreport/dailyrptdetail" class="btn btn-outline-info">View Report</a>
 							@*<div class="card-header-action">
 								<a href="/DepartmentDailyReport/DailyReportCreate" class="btn app-btn-secondary">Create</a>
 							</div><!--//card-header-actions-->*@
@@ -40,8 +41,8 @@ else
 								{
 									<tr>
 										<td class="text-center">@item.CreatedDate</td>										
-										<td class="text-center">@item.DepartmentName</td>
-										<td class="text-center">@item.CreatedBy</td>
+										<td>@item.DepartmentName</td>
+										<td>@item.CreatedBy</td>
 										<td class="text-center">
 											<a href="/DepartmentDailyReport/userdetail/@item.Id" class="btn btn-primary">Detail</a>
 											<a href="/departmentdailyreport/dailyreportedit/@item.Id" class="btn btn-warning">Edit</a>											

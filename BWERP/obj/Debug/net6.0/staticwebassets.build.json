@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Rx9H8sl8U0SLCRQhyIrEN0BMW6BnzK1xkeXXUhb1/MU=",
+  "Hash": "OAKy9029GEOL4dk8D8YUiXNPGf+gWoNLI/5jWDsNzAE=",
   "Source": "BWERP",
   "BasePath": "_content/BWERP",
   "Mode": "Default",
@@ -39013,6 +39013,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\ckeditor.js",
+      "SourceId": "BWERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\",
+      "BasePath": "_content/BWERP",
+      "RelativePath": "js/ckeditor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ckeditor.js"
+    },
+    {
+      "Identity": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\ckeditor.js.map",
+      "SourceId": "BWERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\",
+      "BasePath": "_content/BWERP",
+      "RelativePath": "js/ckeditor.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ckeditor.js.map"
+    },
+    {
+      "Identity": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\CKEditorInterop.js",
+      "SourceId": "BWERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\",
+      "BasePath": "_content/BWERP",
+      "RelativePath": "js/CKEditorInterop.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\CKEditorInterop.js"
     }
   ]
 }

@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0Q3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Hien Project/BWERP/BWERP/Pages/DepartmentDailyReport/DailyReportDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0RGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Hien Project/BWERP/BWERP/Pages/DepartmentDailyReport/DailyReportEdit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwYXJ0bWVudERhaWx5UmVwb3J0XERhaWx5UmVwb3J0RWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -114,6 +118,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Hien Project/BWERP/BWERP/Shared/BlankLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEJsYW5rTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Hien Project/BWERP/BWERP/Shared/CKEditorBlazor.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENLRWRpdG9yQmxhem9yLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Hien Project/BWERP/BWERP/Shared/Error.razor]

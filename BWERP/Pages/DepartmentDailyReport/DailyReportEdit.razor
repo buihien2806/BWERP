@@ -42,17 +42,23 @@
 							</div>
 							<div class="mb-3">
 								<label for="Name" class="form-label">Today Report</label>
-								<InputTextArea class="form-control" style="height: 250px;" @bind-Value="dailyrpt.TodayTask"></InputTextArea>
+								<CKEditorBlazor Id="cktodayrpt"
+											@bind-Value=@dailyrpt.TodayTask>
+								</CKEditorBlazor>
+								@*<InputTextArea class="form-control" style="height: 250px;" @bind-Value="dailyrpt.TodayTask"></InputTextArea>*@
 								<ValidationMessage For="()=>dailyrpt.TodayTask"></ValidationMessage>
 							</div>
 
 							<div class="mb-3">
 								<label for="Name" class="form-label">Tomorrow Report</label>
-								<InputTextArea class="form-control" style="height: 250px;" @bind-Value="dailyrpt.TomorrowTask"></InputTextArea>
+								<CKEditorBlazor Id="cktomorrowrpt"
+											@bind-Value=@dailyrpt.TomorrowTask>
+								</CKEditorBlazor>
+								@*<InputTextArea class="form-control" style="height: 250px;" @bind-Value="dailyrpt.TomorrowTask"></InputTextArea>*@
 								<ValidationMessage For="()=>dailyrpt.TomorrowTask"></ValidationMessage>
 							</div>
 							<button type="submit" class="btn app-btn-primary">Save Changes</button>
-							<a class="btn app-btn-secondary" href="/users/userlist">Cancel</a>
+							<a class="btn app-btn-secondary" href="/DepartmentDailyReport/DailyReportList">Cancel</a>
 						</EditForm>
 					</div><!--//app-card-body-->
 				</div><!--//app-card-->

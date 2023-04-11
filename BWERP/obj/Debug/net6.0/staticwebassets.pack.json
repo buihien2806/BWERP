@@ -9169,6 +9169,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\CKEditorInterop.js",
+      "PackagePath": "staticwebassets\\js\\CKEditorInterop.js"
+    },
+    {
+      "Id": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\ckeditor.js",
+      "PackagePath": "staticwebassets\\js\\ckeditor.js"
+    },
+    {
+      "Id": "D:\\Hien Project\\BWERP\\BWERP\\wwwroot\\js\\ckeditor.js.map",
+      "PackagePath": "staticwebassets\\js\\ckeditor.js.map"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BWERP.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

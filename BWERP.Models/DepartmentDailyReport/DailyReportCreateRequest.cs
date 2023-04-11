@@ -8,8 +8,8 @@ namespace BWERP.Models.DepartmentDailyReport
 {
 	public class DailyReportCreateRequest
 	{
-		public string TodayTask { get; set; }
-		public string TomorrowTask { get; set; }
+		public string? TodayTask { get; set; }
+		public string? TomorrowTask { get; set; }
 		public DateTime CreatedDate { get; set; }
 		public DateTime UpdatedDate { get; set; }
 
