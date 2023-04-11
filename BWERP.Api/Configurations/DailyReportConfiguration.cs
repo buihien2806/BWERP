@@ -12,7 +12,7 @@ namespace BWERP.Api.Configurations
             builder.HasKey(x => x.Id);
 			builder.Property(x => x.Id).UseIdentityColumn();
 			builder.Property(x => x.TodayTask).IsRequired().HasMaxLength(2000);
-            builder.Property(x => x.TomorrowTask).HasMaxLength(2000);
+            builder.Property(x => x.TomorrowTask).IsRequired(false).HasMaxLength(2000);
 
             builder.HasOne(x => x.AppUser).WithMany(x => x.DailyReports).HasForeignKey(x => x.UserId);
             builder.HasOne(x => x.Department).WithMany(x => x.DailyReports).HasForeignKey(x => x.DepartmentId);
