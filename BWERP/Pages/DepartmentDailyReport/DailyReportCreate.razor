@@ -83,12 +83,19 @@ else
 
 	private async Task SubmitTask(EditContext context)
 	{
+		//VALIDATE DEPARTMENT
+		if (dailyrpt.DepartmentId == 0)
+		{
+			toastService.ShowError($"Department can not be null. Please check again.!");
+			return;
+		}
 		//AUTHORIZE
 		var authState = await AuthenticationStateProvider
 			.GetAuthenticationStateAsync();
 		//GET USERID
 		var userid = authState.User.FindFirst(c => c.Type.Contains("UserId"))?.Value;
 		dailyrpt.UserId = Guid.Parse(userid);
+
 		var result = await dailyreportApiClient.CreateDailyReport(dailyrpt);
 		if (result)
 		{

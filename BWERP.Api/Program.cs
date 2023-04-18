@@ -2,8 +2,10 @@ using BWERP.Api.EF;
 using BWERP.Api.Entities;
 using BWERP.Api.Repositories.Interfaces;
 using BWERP.Api.Repositories.Services;
+using BWERP.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -50,7 +52,9 @@ builder.Services.AddTransient<IDailyReportRepository, DailyReportRepository>();
 builder.Services.AddTransient<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 builder.Services.AddTransient<IMenuRepository, MenuRepository>();
+builder.Services.AddTransient<IRoleMenusRepository, RoleMenusRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IMailService, MailService>();
 
 var app = builder.Build();
 

@@ -17,5 +17,6 @@ namespace BWERP.Models.DepartmentDailyReport
 		public string CreatedBy { get; set; }
 		public int DepartmentId { get; set; }
 		public string DepartmentName { get; set; }
+		public string HtmlBody { get; set; }
 	}
 }

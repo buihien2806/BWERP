@@ -75,3 +75,8 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\refint\BWERP.Api.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\BWERP.Api.pdb
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\BWERP.Api.genruntimeconfig.cache
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\ref\BWERP.Api.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Release\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Release\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Release\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Release\net6.0\Newtonsoft.Json.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
