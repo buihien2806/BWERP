@@ -8,7 +8,9 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCo
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
@@ -16,6 +18,7 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFr
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Configuration.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity.Client.dll
@@ -26,6 +29,8 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

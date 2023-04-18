@@ -72,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudXNcTWVudUxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Hien Project/BWERP/BWERP/Pages/RoleMenus/RoleMenusList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9sZU1lbnVzXFJvbGVNZW51c0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Hien Project/BWERP/BWERP/Pages/Tasks/TaskAssign.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFza3NcVGFza0Fzc2lnbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

@@ -32,8 +32,27 @@ namespace BWERP.Api.Controllers
 				CreatedDate = x.CreatedDate,
 				UpdatedDate = x.UpdatedDate,
 				DepartmentName = x.Department.Name
+				
 			}).OrderByDescending(x => x.CreatedDate);
 			return Ok(userDtos);
+		}
+		[HttpGet("search")]
+		public async Task<IActionResult> GetAllDailyRptSearch([FromQuery] DailyReportListSearch dailyrptsearch)
+		{
+			var rpt = await _dailyReport.GetListDailyRptSearch(dailyrptsearch);
+
+			var rptDtos = rpt.Select(x => new DailyReportView()
+			{
+				Id = x.Id,
+				TodayTask = x.TodayTask,
+				TomorrowTask = x.TomorrowTask,
+				CreatedBy = x.AppUser.UserName,
+				CreatedDate = x.CreatedDate,
+				UpdatedDate = x.UpdatedDate,
+				DepartmentName = x.Department.Name,
+				HtmlBody = "</br><h4>" + x.Department.Name + "</h4>" + x.TodayTask
+			}).OrderByDescending(x => x.CreatedDate);
+			return Ok(rptDtos);
 		}
 		[HttpPost]
 		public async Task<IActionResult> Create([FromBody] DailyReportCreateRequest request)

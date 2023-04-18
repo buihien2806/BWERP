@@ -20,6 +20,7 @@ namespace BWERP.Api.Controllers
         {
             _taskRepository = taskRepository;
         }
+
         //api/tasks?name=?
         [HttpGet]
         public async Task<IActionResult> GetAllTask([FromQuery] TaskListSearch taskListSearch)
@@ -41,6 +42,7 @@ namespace BWERP.Api.Controllers
                 pagedlist.MetaData.CurrentPage,
                 pagedlist.MetaData.PageSize));
         }
+
 		[HttpGet("me")]
 		public async Task<IActionResult> GetTaskByUserId([FromQuery] TaskListSearch taskListSearch)
 		{
@@ -62,6 +64,7 @@ namespace BWERP.Api.Controllers
 				pagedlist.MetaData.CurrentPage,
 				pagedlist.MetaData.PageSize));
 		}
+
 		[HttpPost]
         public async Task<IActionResult> Create([FromBody] TaskCreateRequest request)
         {
@@ -77,6 +80,7 @@ namespace BWERP.Api.Controllers
             });
             return Ok();
         }
+
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetById(Guid id)
@@ -96,6 +100,7 @@ namespace BWERP.Api.Controllers
                 CreatedDate = result.CreatedDate
             });
         }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] TaskUpdateRequest request)
@@ -117,6 +122,7 @@ namespace BWERP.Api.Controllers
 
             return Ok();
         }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
@@ -127,6 +133,7 @@ namespace BWERP.Api.Controllers
             await _taskRepository.Delete(task);
             return Ok();
         }
+
         [HttpPut]
         [Route("{id}/assign")]
         public async Task<IActionResult> AssignTask(Guid id, [FromBody] TaskAssignRequest request)

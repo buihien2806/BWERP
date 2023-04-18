@@ -11,10 +11,16 @@ D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.A
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.Forms.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Components.Web.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Metadata.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Microsoft.JSInterop.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\System.IO.Pipelines.dll
+D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\BWERP.Models.dll
 D:\Hien Project\BWERP\BWERP\obj\Release\net6.0\PubTmp\Out\BWERP.Models.pdb

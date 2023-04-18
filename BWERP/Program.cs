@@ -13,9 +13,11 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddTransient<IDailyReportApiClient, DailyReportApiClient>();
 builder.Services.AddTransient<IDepartmentApiClient, DepartmentApiClient>();
+builder.Services.AddTransient<IEmailApiClient, EmailApiClient>();
 builder.Services.AddTransient<ITaskApiClient, TaskApiClient>();
 builder.Services.AddTransient<IUserApiClient, UserApiClient>();
 builder.Services.AddTransient<IMenuApiClient, MenuApiClient>();
+builder.Services.AddTransient<IRoleMenuApiClient, RoleMenuApiClient>();
 
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddOptions();

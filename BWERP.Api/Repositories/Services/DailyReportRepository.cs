@@ -1,6 +1,8 @@
 ﻿using BWERP.Api.EF;
 using BWERP.Api.Entities;
 using BWERP.Api.Repositories.Interfaces;
+using BWERP.Models.DepartmentDailyReport;
+using BWERP.Models.Task;
 using Microsoft.EntityFrameworkCore;
 
 namespace BWERP.Api.Repositories.Services
@@ -37,6 +39,18 @@ namespace BWERP.Api.Repositories.Services
 			var query = _mainContext.DailyReports
 				.Include(x => x.AppUser)
 				.Include(x => x.Department).AsQueryable();
+
+			return await query.OrderByDescending(x => x.CreatedDate).ToListAsync();
+		}
+
+		public async Task<List<DailyReport>> GetListDailyRptSearch(DailyReportListSearch dailyrptsearch)
+		{
+			DateTime searchDate = DateTime.Today;
+			var query = _mainContext.DailyReports
+				.Include(x => x.AppUser)
+				.Include(x => x.Department).AsQueryable();
+
+			query = query.Where(t => t.CreatedDate.Date == dailyrptsearch.CreatedDate);
 
 			return await query.OrderByDescending(x => x.CreatedDate).ToListAsync();
 		}

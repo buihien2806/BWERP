@@ -80,3 +80,6 @@ D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstra
 D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\MailKit.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\MimeKit.dll
+D:\Hien Project\BWERP\BWERP.Api\bin\Debug\net6.0\BouncyCastle.Crypto.dll

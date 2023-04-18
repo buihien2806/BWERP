@@ -31,7 +31,7 @@
 						</div><!--//form-group-->
 						<div class="mb-3">
 							<label for="password">Password:</label>
-							<InputText id="password" class="form-control" @bind-Value="LoginModel.Password"></InputText>
+								<InputText type="password" id="password" class="form-control" @bind-Value="LoginModel.Password"></InputText>
 							<ValidationMessage For="()=> LoginModel.Password"></ValidationMessage>
 						</div>
 						<div class="extra mt-3 row justify-content-between">
