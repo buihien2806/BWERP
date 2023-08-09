@@ -48,6 +48,7 @@ builder.Services.AddCors(options =>
 });
 
 // Add services to the container.
+builder.Services.AddTransient<ICommentRepository, CommentRepository>();
 builder.Services.AddTransient<IDailyReportRepository, DailyReportRepository>();
 builder.Services.AddTransient<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddTransient<ITaskRepository, TaskRepository>();

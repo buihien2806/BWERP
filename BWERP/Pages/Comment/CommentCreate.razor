@@ -1,0 +1,102 @@
+﻿@page "/comment/create"
+
+@using BWERP.Models.Comment;
+@using BWERP.Models.Enums;
+@using BWERP.Pages.Components
+@using BWERP.Repositories.Interfaces;
+@using Microsoft.AspNetCore.Components.Authorization;
+
+@inject ICommentApiClient commentApi;
+@inject NavigationManager NavigationManager;
+@inject IToastService toastService;
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+	<div class="container-xl">
+		<h1 class="app-page-title">Create a new comment</h1>
+		<hr class="mb-4">
+		<div class="row g-4 settings-section">
+			<div class="app-card app-card-settings shadow-sm p-4">
+				<div class="app-card-body">
+					<EditForm Model="commentCreate" OnValidSubmit="SubmitTask">
+						<DataAnnotationsValidator />
+						<div class="mb-3">
+							<label for="Name" class="form-label">Created Date</label>
+							<InputDate class="form-control" @bind-Value="commentCreate.CreatedDate"></InputDate>
+							<ValidationMessage For="()=>commentCreate.CreatedDate"></ValidationMessage>
+						</div>
+						<div class="mb-3">
+							<label for="Name" class="form-label">Priority</label>
+							<InputSelect class="form-select" @bind-Value="commentCreate.Functions">
+								<option>Select a priority</option>
+								@foreach (string item in Enum.GetNames(typeof(Functions)))
+								{
+									<option value="@item">@item.Replace("_"," ")</option>
+								}
+							</InputSelect>
+							<ValidationMessage For="()=>commentCreate.Functions"></ValidationMessage>
+						</div>
+						<div class="mb-3">
+							<label for="Name" class="form-label">Content</label>
+							<CKEditorBlazor contenteditable="false" Id="cktodayrpt"
+											@bind-Value=@commentCreate.Content>
+							</CKEditorBlazor>
+							<ValidationMessage For="()=>commentCreate.Content"></ValidationMessage>
+						</div>
+
+						@*<div class="mb-3">
+						<label for="Name" class="form-label">Tomorrow Report</label>
+						<CKEditorBlazor Id="cktomorrowrpt"
+						@bind-Value=@dailyrpt.TomorrowTask>
+						</CKEditorBlazor>
+						<InputTextArea class="form-control" style="height: 250px;" @bind-Value="dailyrpt.TomorrowTask"></InputTextArea>
+						<ValidationMessage For="()=>dailyrpt.TomorrowTask"></ValidationMessage>
+						</div>*@
+						<button type="submit" class="btn app-btn-primary">Save Changes</button>
+						<a class="btn app-btn-secondary" href="/comment/commentlist">Cancel</a>
+					</EditForm>
+				</div><!--//app-card-body-->
+			</div><!--//app-card-->
+		</div><!--//row-->
+	</div><!--//container-fluid-->
+</div>
+<!--//app-content-->
+
+@code {
+	private CommentCreateRequest commentCreate = new CommentCreateRequest();
+	private List<CommentViewRequest> commentView;
+
+	protected override async Task OnInitializedAsync()
+	{
+		//departmentViewDtos = await departmentApiClient.GetDepartmentList();
+		commentCreate.CreatedDate = DateTime.Now;
+
+	}
+
+	private async Task SubmitTask(EditContext context)
+	{
+		//VALIDATE DEPARTMENT
+		//if (dailyrpt.DepartmentId == 0)
+		//{
+		//	toastService.ShowError($"Department can not be null. Please check again.!");
+		//	return;
+		//}
+		//AUTHORIZE
+		var authState = await AuthenticationStateProvider
+			.GetAuthenticationStateAsync();
+		//GET USERID
+		var userid = authState.User.FindFirst(c => c.Type.Contains("UserId"))?.Value;
+		commentCreate.CreatedBy = Guid.Parse(userid);
+
+		var result = await commentApi.CreateComment(commentCreate);
+		if (result)
+		{
+			toastService.ShowSuccess($"Comment has been created successfully.");
+			NavigationManager.NavigateTo("/comment/commentlist");
+		}
+		else
+		{
+			toastService.ShowError($"An error occurred in progress. Please contact to administrator.");
+		}
+	}
+}

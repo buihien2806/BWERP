@@ -17,8 +17,9 @@ namespace BWERP.Api.EF
             modelBuilder.ApplyConfiguration(new TaskConfiguration());
             modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfiguration(new DailyReportConfiguration());
+			modelBuilder.ApplyConfiguration(new CommentConfiguration());
 
-            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+			modelBuilder.ApplyConfiguration(new AppUserConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AppPermissionConfiguration());
             modelBuilder.ApplyConfiguration(new AppMenuConfiguration());
@@ -36,6 +37,7 @@ namespace BWERP.Api.EF
 			modelBuilder.Seed();
 		}
 
+		public DbSet<Comment> Comments { get; set; }
 		public DbSet<Department> Departments { get; set; }
 		public DbSet<DailyReport> DailyReports { get; set; }
 		public DbSet<Task> Tasks { get; set; }

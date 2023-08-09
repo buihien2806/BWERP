@@ -32,7 +32,6 @@ namespace BWERP.Api.Controllers
 			if (user == null) return BadRequest(new LoginResponse { Successful = false, Error = "Username and password are invalid." });
 
 			var result = await _signInManager.PasswordSignInAsync(login.UserName, login.Password, false, false);
-
 			if (!result.Succeeded) return BadRequest(new LoginResponse { Successful = false, Error = "Username and password are invalid." });
 
 			var claims = new[]

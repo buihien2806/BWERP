@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
+builder.Services.AddTransient<ICommentApiClient, CommentApiClient>();
 builder.Services.AddTransient<IDailyReportApiClient, DailyReportApiClient>();
 builder.Services.AddTransient<IDepartmentApiClient, DepartmentApiClient>();
 builder.Services.AddTransient<IEmailApiClient, EmailApiClient>();
@@ -30,6 +31,7 @@ builder.Services.AddScoped(sp => new HttpClient
 	BaseAddress = new Uri("https://localhost:7036")
 	//BaseAddress = new Uri("http://10.11.10.42:8080/")
 });
+
 builder.Services.AddHttpClient();
 //TOAST
 builder.Services.AddBlazoredToast();

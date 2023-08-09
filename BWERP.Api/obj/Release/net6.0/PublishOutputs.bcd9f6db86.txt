@@ -4,6 +4,7 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\appsettings.json
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\BWERP.Api.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\BWERP.Api.runtimeconfig.json
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\BWERP.Api.pdb
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -29,8 +30,10 @@ D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
+D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Hien Project\BWERP\BWERP.Api\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

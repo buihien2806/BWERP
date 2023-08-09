@@ -1,0 +1,73 @@
+﻿@page "/comment/commentdetail/{commentid:int}"
+
+@using BWERP.Models.Comment;
+@using BWERP.Pages.Components
+@using BWERP.Repositories.Interfaces;
+
+@if (commentView == null)
+{
+	<LoadingIndicator></LoadingIndicator>
+}
+else
+{
+	<div class="app-content pt-3 p-md-3 p-lg-4">
+		<div class="container-xl">
+			<h1 class="app-page-title">Edit Comment @commentView.Function</h1>
+			<hr class="mb-4">
+			<div class="row g-4 settings-section">
+				<div class="app-card app-card-settings shadow-sm p-4">
+					<div class="app-card-body">
+						@*<EditForm Model="Task" OnValidSubmit="SubmitTask">
+							<DataAnnotationsValidator />
+							<div class="mb-3">
+								<label for="Name" class="form-label">Name</label>
+								<InputText class="form-control" @bind-Value="Task.Name"></InputText>
+								<ValidationMessage For="()=>Task.Name"></ValidationMessage>
+							</div>
+
+							<div class="mb-3">
+								<label for="Name" class="form-label">Priority</label>
+								<InputSelect class="form-select" @bind-Value="Task.Priority">
+									<option>Select a priority</option>
+									@foreach (string item in Enum.GetNames(typeof(Priority)))
+									{
+										<option value="@item">@item</option>
+									}
+								</InputSelect>
+								<ValidationMessage For="()=>Task.Priority"></ValidationMessage>
+							</div>
+							<div class="mb-3">
+								<label for="Name" class="form-label">Status</labe 
+								<InputSelect class="form-select" @bind-Value="Task.Status">
+									<option>Select status</option>
+									@foreach (string item in Enum.GetNames(typeof(Status)))
+									{
+										<option value="@item">@item</option>
+									}
+								</InputSelect>
+								<ValidationMessage For="()=>Task.Status"></ValidationMessage>
+							</div>
+							<button type="submit" class="btn app-btn-primary">Save Changes</button>
+							<a class="btn app-btn-secondary" href="/tasks/tasklist">Cancel</a>
+						</EditForm>*@
+					</div><!--//app-card-body-->
+				</div><!--//app-card-->
+			</div><!--//row-->
+		</div><!--//container-fluid-->
+	</div>
+	<!--//app-content-->
+}
+
+@code {
+    [Parameter]
+    public int commentid { get; set; }
+    //INJECTION
+    [Inject] private ICommentApiClient commentApi { get; set; }
+    //MODELS
+    private CommentViewRequest commentView { set; get; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        commentView = await commentApi.GetCommentById(commentid);
+    }
+}

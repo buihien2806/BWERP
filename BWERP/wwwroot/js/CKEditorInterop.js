@@ -118,6 +118,7 @@
                             'bulletedList',
                             'numberedList',
                             '|',
+                            '|', 'alignment',
                             'fontSize',
                             'fontFamily',
                             'fontColor',
@@ -128,7 +129,8 @@
                             'insertTable',
                             'removeFormat',
                             'undo',
-                            'redo', 'sourceEditing'
+                            'redo',
+                            '|', 'sourceEditing'
                         ]
                     },
                     language: 'en',
