@@ -19,10 +19,62 @@ Develop ERP web for Buwon Vina using Blazor Server .NET 6.0
 - Microsoft Docs: https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/handle-errors?view=aspnetcore-6.0
 - Blazor University: https://blazor-university.com/
 
-## Add Summernote
-- Add package BlazingComponents.Summernote (0.0.6).
-- Add reference to style sheet & javascript references Add the following line to the head tag of your _Layout.cshtml (Blazor Server) or index.html (Blazor WebAssembly).
-- CSS: "./_content/BlazingComponents.Summernote/summernote/summernote-lite.min.css" rel="stylesheet"
-- JS: <script src="./_content/BlazingComponents.Summernote/summernote/jquery-3.4.1.slim.min.js"></script>
-<script src="./_content/BlazingComponents.Summernote/summernote/summernote-lite.min.js"></script>
-- Usage: <BlazingComponents.Summernote.Editor @bind-content="@content" />
+## Build CRUD with Dapper
+public class BugDataAccessLayer
+{
+    public IConfiguration Configuration;
+    private const string BUGTRACKER_DATABASE = "BugTrackerDatabase";
+    private const string SELECT_BUG = "select * from bugs";
+    public BugDataAccessLayer(IConfiguration configuration)
+    {
+       Configuration = configuration; //Inject configuration to access Connection string from appsettings.json.
+    }
+
+    public async Task<List<Bug>> GetBugsAsync()
+    {
+       using (IDbConnection db = new SqlConnection(Configuration.GetConnectionString(BUGTRACKER_DATABASE)))
+       {
+           db.Open();
+           IEnumerable<Bug> result = await db.QueryAsync<Bug>(SELECT_BUG);
+           return result.ToList();
+       }
+    }
+
+    public async Task<int> GetBugCountAsync()
+    {
+       using (IDbConnection db = new SqlConnection(Configuration.GetConnectionString(BUGTRACKER_DATABASE)))
+       {
+            db.Open();
+            int result = await db.ExecuteScalarAsync<int>("select count(*) from bugs");
+            return result;
+       }
+    }
+
+    public async Task AddBugAsync(Bug bug)
+    {
+       using (IDbConnection db = new SqlConnection(Configuration.GetConnectionString(BUGTRACKER_DATABASE)))
+       {
+            db.Open();
+            await db.ExecuteAsync("insert into bugs (Summary, BugPriority, Assignee, BugStatus) values (@Summary, @BugPriority, @Assignee, @BugStatus)", bug);
+       }
+    }
+
+    public async Task UpdateBugAsync(Bug bug)
+    {
+       using (IDbConnection db = new SqlConnection(Configuration.GetConnectionString(BUGTRACKER_DATABASE)))
+       {
+            db.Open();
+            await db.ExecuteAsync("update bugs set Summary=@Summary, BugPriority=@BugPriority, Assignee=@Assignee, BugStatus=@BugStatus where id=@Id", bug);
+       }
+    }
+
+    public async Task RemoveBugAsync(int bugid)
+    {
+       using (IDbConnection db = new SqlConnection(Configuration.GetConnectionString(BUGTRACKER_DATABASE)))
+       {
+            db.Open();
+            await db.ExecuteAsync("delete from bugs Where id=@BugId", new { BugId = bugid });
+       }
+    }
+}
+
