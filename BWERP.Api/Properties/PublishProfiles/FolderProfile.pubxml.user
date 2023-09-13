@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\Deploy Apps\BWAPI</_PublishTargetUrl>
-    <History>True|2023-06-13T02:47:42.8146943Z;True|2023-04-11T16:04:00.1112575+07:00;True|2023-04-01T14:03:17.8232848+07:00;True|2023-04-01T13:21:09.6010747+07:00;</History>
+    <History>True|2023-09-13T02:01:05.5081233Z;True|2023-09-12T16:19:29.2758786+07:00;True|2023-06-13T09:47:42.8146943+07:00;True|2023-04-11T16:04:00.1112575+07:00;True|2023-04-01T14:03:17.8232848+07:00;True|2023-04-01T13:21:09.6010747+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

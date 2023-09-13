@@ -10,7 +10,7 @@
 @inject ICommentApiClient cmtService;
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-@if (editRequest != null)
+@if (editRequest.Content != null)
 {
 	<div class="app-content pt-3 p-md-3 p-lg-4">
 		<div class="container-xl">
@@ -39,7 +39,7 @@
 							</div>
 							<div class="mb-3">
 								<label for="Name" class="form-label">Content</label>
-								<CKEditorBlazor Id="ckcontent" contenteditable="false"
+								<CKEditorBlazor Id="ckcomment"
 											@bind-Value=@editRequest.Content>
 								</CKEditorBlazor>
 								<ValidationMessage For="()=>editRequest.Content"></ValidationMessage>
@@ -95,7 +95,7 @@ else
 		}
 		else
 		{
-			toastService.ShowError($"An error occurred in progress. Please contact to administrator.");						
+			toastService.ShowError($"An error occurred in progress. Please contact to administrator.");
 
 		}
 	}

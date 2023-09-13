@@ -41,9 +41,9 @@ else
 								@foreach (var item in commentViews)
 								{
 									<tr>
+										<td>@item.CreatedDate</td>
 										<td>@item.Function</td>
 										<td>@item.CreatedBy</td>
-										<td>@item.CreatedDate</td>
 										<td class="text-center">
 											<a href="/comment/commentdetail/@item.Id" class="btn btn-primary">Detail</a>
 											<a href="/comment/commentedit/@item.Id" class="btn btn-warning">Edit</a>

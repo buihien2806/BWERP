@@ -64,7 +64,7 @@ namespace BWERP.Api.Controllers
 
 			var result = await _comment.Create(new Comment()
 			{
-				Content = request.Content,
+				Content = request.Content.Replace("<table>", @"<table class=""table table-bordered"">"),
 				Function = request.Functions,
 
 				CreatedDate = DateTime.Now,
@@ -89,7 +89,7 @@ namespace BWERP.Api.Controllers
 				return NotFound($"{id} is not found");
 			}
 
-			taskFromDb.Content = request.Content;
+			taskFromDb.Content = request.Content.Replace("<table>", @"<table class=""table table-bordered"">");
 			taskFromDb.UpdatedBy = request.UpdatedBy;
 			taskFromDb.UpdatedDate = DateTime.Now;
 			

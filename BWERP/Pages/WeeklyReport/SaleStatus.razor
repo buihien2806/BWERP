@@ -3,7 +3,7 @@
 @using BWERP.Pages.Components
 @using BWERP.Repositories.Interfaces;
 
-@if (editRequest != null)
+@*@if (editRequest != null)
 {
 	<div class="col-12 mt-2">
 		<EditForm Model="editRequest">
@@ -17,7 +17,19 @@
 			</div>
 		</EditForm>
 	</div>
-	@*<div class="col-12 mt-2">
+
+}
+else
+{
+	<LoadingIndicator></LoadingIndicator>
+}*@
+@if (commentView == null)
+{
+	<LoadingIndicator></LoadingIndicator>
+}
+else
+{
+	<div class="col-12 mt-2">
 		<div class="row mb-2">
 			<div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
 				<div class="app-card-header p-3 border-bottom-0">
@@ -36,23 +48,16 @@
 						</div><!--//col-->
 					</div><!--//row-->
 				</div><!--//app-card-header-->
-				<EditForm Model="editRequest">
-					<div class="app-card-body">
-						<div class="mb-3">
-							<InputDate class="form-control" @bind-Value="editRequest.UpdatedDate"></InputDate>
-							<CKEditorBlazor Id="ckcontent" contenteditable="false"
-										@bind-Value=@editRequest.Content>
-							</CKEditorBlazor>
+				<div class="app-card-body px-4">
+					<div class="intro">
+						<div class="row">
+							@(new MarkupString(commentView.Content))
 						</div>
 					</div>
-				</EditForm>
-			</div><!--//app-card-->
-		</div>
-	</div>*@
-}
-else
-{
-	<LoadingIndicator></LoadingIndicator>
+				</div>
+			</div><!--//app-card-body-->
+		</div><!--//app-card-->
+	</div>
 }
 
 @code {
@@ -60,16 +65,17 @@ else
 	public int commentid { get; set; }
 	//INJECTION
 	[Inject] private ICommentApiClient commentApi { get; set; }
-	private CommentEditRequest editRequest = new CommentEditRequest();
-	//private List<CommentViewRequest> commentView;
+	//private CommentEditRequest editRequest = new CommentEditRequest();
+	private CommentViewRequest commentView { set; get; }
 
 	protected override async Task OnInitializedAsync()
 	{
-		var cmt = await commentApi.GetCommentById(8);
-		editRequest.Functions = cmt.Function;
-		editRequest.Content = cmt.Content;
-		editRequest.UpdatedBy = cmt.UpdatedBy;
-		editRequest.UpdatedDate = DateTime.Now;
+		commentView = await commentApi.GetCommentById(8);
+		//var cmt = await commentApi.GetCommentById(8);
+		//editRequest.Functions = cmt.Function;
+		//editRequest.Content = cmt.Content;
+		//editRequest.UpdatedBy = cmt.UpdatedBy;
+		//editRequest.UpdatedDate = DateTime.Now;
 		//GET DEPARTMENT
 		//departmentViewDtos = await departmentApiClient.GetDepartmentList();
 	}

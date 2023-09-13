@@ -90,7 +90,7 @@ else
 										<td>@item.Url</td>
 										<td>@item.SortOrder</td>
 										<td class="text-center">
-											<a href="/menus/menudetail/@item.Id" class="btn btn-primary">Detail</a>
+											@*<a href="/menus/menudetail/@item.Id" class="btn btn-primary">Detail</a>*@
 											<a href="/menus/menuedit/@item.Id" class="btn btn-warning">Edit</a>
 											<button class="btn btn-danger" @onclick="()=> OnDeleteTask(item.Id)">Delete</button>
 										</td>
