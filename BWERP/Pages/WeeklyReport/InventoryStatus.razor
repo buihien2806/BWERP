@@ -1,4 +1,4 @@
-﻿@page "/weeklyreport/salestatus"
+﻿@page "/weeklyreport/inventorystatus"
 @using BWERP.Models.Comment;
 @using BWERP.Pages.Components
 @using BWERP.Repositories.Interfaces;
@@ -24,7 +24,7 @@ else
 
 						</div><!--//col-->
 						<div class="col-auto">
-							<h4 class="app-card-title">Sale Status</h4>
+							<h4 class="app-card-title">Inventory Status</h4>
 						</div><!--//col-->
 					</div><!--//row-->
 				</div><!--//app-card-header-->
@@ -50,6 +50,6 @@ else
 
 	protected override async Task OnInitializedAsync()
 	{
-		commentView = await commentApi.GetCommentByFuncId(2);
+		commentView = await commentApi.GetCommentByFuncId(3);
 	}
 }

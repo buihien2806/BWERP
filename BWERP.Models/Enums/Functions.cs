@@ -8,10 +8,12 @@ namespace BWERP.Models.Enums
 {
 	public enum Functions
 	{
-		Product_Status = 1,
+		Production_Status = 1,
 		Sale_Status = 2,
 		Inventory_Status = 3,
-		Finnance = 4,
-		Business_Innovation = 5
+		Finance = 4,
+		Business_Innovation = 5,
+		Maintenance = 6,
+		Indonesia_Management = 7
 	}
 }
