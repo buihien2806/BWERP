@@ -23,6 +23,12 @@ namespace BWERP.Repositories.Services
 			return result.IsSuccessStatusCode;
 		}
 
+		public async Task<CommentViewRequest> GetCommentByFuncId(int id)
+		{
+			var result = await _httpClient.GetFromJsonAsync<CommentViewRequest>($"/api/comments/function/{id}");
+			return result;
+		}
+
 		public async Task<CommentViewRequest> GetCommentById(int id)
 		{
 			var result = await _httpClient.GetFromJsonAsync<CommentViewRequest>($"/api/comments/{id}");

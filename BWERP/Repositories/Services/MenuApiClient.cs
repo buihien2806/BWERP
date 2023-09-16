@@ -52,7 +52,7 @@ namespace BWERP.Repositories.Services
 			var result = await _httpClient.PutAsJsonAsync($"/api/menus/{id}", request);
 			return result.IsSuccessStatusCode;
 		}
-
+		                                                                                                                                                                                                                           
 		public async Task<List<ParentMenuDto>> GetParentMenu()
 		{
 			var result = await _httpClient.GetFromJsonAsync<List<ParentMenuDto>>($"/api/menus/parent");

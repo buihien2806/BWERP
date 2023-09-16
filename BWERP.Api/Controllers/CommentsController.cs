@@ -55,6 +55,26 @@ namespace BWERP.Api.Controllers
 				UpdatedBy = result.UpdatedBy
 			});
 		}
+		[HttpGet]
+		[Route("function/{id}")]		
+		public async Task<IActionResult> GetByFunctionId(int id)
+		{
+			var result = await _comment.GetCommentByFuncId(id);
+			if (result == null)
+			{
+				return NotFound($"{id} is not found");
+			}
+			return Ok(new CommentViewRequest()
+			{
+				Content = result.Content,
+				Function = result.Function,
+				CreatedBy = result.CreatedBy,
+				Id = result.Id,
+				CreatedDate = result.CreatedDate,
+				UpdatedDate = result.UpdatedDate,
+				UpdatedBy = result.UpdatedBy
+			});
+		}
 
 		[HttpPost]
 		public async Task<IActionResult> Create([FromBody] CommentCreateRequest request)

@@ -1,9 +1,12 @@
 ﻿using BWERP.Api.EF;
 using BWERP.Api.Entities;
 using BWERP.Api.Repositories.Interfaces;
+using BWERP.Models.Comment;
+using BWERP.Models.Enums;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Org.BouncyCastle.Ocsp;
 using System.Data;
@@ -38,9 +41,11 @@ namespace BWERP.Api.Repositories.Services
 			return cmt;
 		}
 
-		public async Task<Comment> GetCommentByFuncId(int funcid)
+		public async Task<Comment> GetCommentByFuncId(int id)
 		{
-			return await _mainContext.Comments.FindAsync(funcid);
+			var query = from m in _mainContext.Comments.Where(x => x.Function == (Functions)id)
+						select m;
+			return await query.OrderByDescending(x => x.Id).Skip(0).Take(1).FirstOrDefaultAsync();
 		}
 
 		public async Task<Comment> GetCommentById(int id)
